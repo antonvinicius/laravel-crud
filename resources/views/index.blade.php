@@ -4,12 +4,13 @@
     <h1 class="text-center">Crud</h1>
 
     <div class="text-center mt-3 mb-4">
-        <a href="">
+        <a href="{{url("books/create")}}">
             <button class="btn btn-success">Cadastrar</button>
         </a>
     </div>
 
     <div class="col-8 m-auto">
+        @csrf
         <table class="table text-center">
             <thead class="thead-dark">
                 <tr>
@@ -32,13 +33,13 @@
                         <td>{{$user->name}}</td>
                         <td>{{$books->price}}</td>
                         <td>
-                            <a href="">
+                            <a href="{{url("books/$books->id")}}">
                                 <button class="btn btn-dark">Visualizar</button>
                             </a>
-                            <a href="">
+                            <a href="{{url("books/$books->id/edit")}}">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="">
+                            <a href="{{url("books/$books->id")}}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>
@@ -46,5 +47,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="text-center">
+            {{$book->links()}}
+        </div>
     </div>
 @endsection

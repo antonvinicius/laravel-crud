@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'BookController@index');
+Route::resource('books', 'BookController');
